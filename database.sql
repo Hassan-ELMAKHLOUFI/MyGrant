@@ -3,6 +3,7 @@
 /* Date de création :  13/05/42 10:35:36 ?                      */
 /*==============================================================*/
 
+CREATE DATABASE StudentGrantsManagement;
 
 drop table ADMINISTRATOR;
 
