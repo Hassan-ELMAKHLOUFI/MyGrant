@@ -1,0 +1,14 @@
+### GET
+GET http://localhost:4567/
+Accept: application/json
+
+
+
+### POST
+POST http://httpbin.org/post
+Content-Type: application/json
+
+{
+  "id": 999,
+  "value": "content"
+}
