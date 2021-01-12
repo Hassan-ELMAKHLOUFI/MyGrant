@@ -1,5 +1,6 @@
 package com.student.grants.management.routes;
 
+import com.student.grants.management.controllers.AdministratorsController;
 import com.student.grants.management.controllers.MainController;
 import com.student.grants.management.controllers.StudentsController;
 
@@ -7,7 +8,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 
 public class Routes {
-    public static void routes(){
+    public static void routes() {
         get("/", MainController::working);
 
         post("/students/login", StudentsController::login);
@@ -18,6 +19,7 @@ public class Routes {
         post("/students/upload-documents", (req, res) -> "Hello World");
         post("/students/extract-receipt", (req, res) -> "Hello World");
 
+        post("/administrators/add", AdministratorsController::add);
         post("/administrators/login", (req, res) -> "Hello World");
         post("/administrators/reset-password", (req, res) -> "Hello World");
         post("/administrators/update-profile", (req, res) -> "Hello World");

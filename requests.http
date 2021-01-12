@@ -5,10 +5,13 @@ Accept: application/json
 
 
 ### POST
-POST http://httpbin.org/post
+POST http://localhost:4567/administrators/add
 Content-Type: application/json
 
 {
-  "id": 999,
-  "value": "content"
+  "firstName": "Ahmed",
+  "lastName": "Charif",
+  "phoneNumber": "0666234971",
+  "email": "ahmed.charif@gmail.com",
+  "password": "Ahmed@#2021"
 }
