@@ -1,2 +1,2 @@
-rootProject.name = 'StudentGrantsManagement'
-
+include ':app'
+rootProject.name='MyGrant'
