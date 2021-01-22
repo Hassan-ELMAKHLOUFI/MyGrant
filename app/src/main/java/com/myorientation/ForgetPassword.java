@@ -141,9 +141,9 @@ public class ForgetPassword extends AppCompatActivity {
         String subject = mSubject;
         String email = getResources().getString(R.string.email);
         String password = getResources().getString(R.string.password);
-        Gmail javaMailAPI = new Gmail(this, email, password, mail, subject, "your new password is:" + message);
-
-        javaMailAPI.execute();
+       // Gmail javaMailAPI = new Gmail(this, email, password, mail, subject, "your new password is:" + message);
+//
+  //      javaMailAPI.execute();
 
     }
 

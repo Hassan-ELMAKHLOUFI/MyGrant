@@ -1,14 +1,17 @@
 package com.myorientation;
 
+import android.util.Log;
+
 import java.sql.*;
 
 public class Database {
     public static Connection connection = null;
 
-    public static void connect(String databaseServerIP, String databaseServerPort, String databaseUser, String databasePassword) {
+    public static void connect(String host, String port,String name, String user, String password) {
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@" + databaseServerIP + ":" + databaseServerPort + "/XE", databaseUser, databasePassword);
+            Class.forName("org.postgresql.Driver");
+            connection = DriverManager.getConnection("jdbc:postgresql://"+host+":"+port+"/"+name, user, password);
+            Log.d("ensetm","connected successfully to database");
         } catch (Exception e) {
             e.printStackTrace();
         }

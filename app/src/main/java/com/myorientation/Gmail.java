@@ -15,7 +15,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-class Gmail extends AsyncTask<Void, Void, Void> {
+public class Gmail {
     private Context mContext;
     private Session mSession;
     private String mEmail;
@@ -25,8 +25,7 @@ class Gmail extends AsyncTask<Void, Void, Void> {
     private String mMessage;
     private ProgressDialog mProgressDialog;
 
-    public Gmail(Context mContext, String email, String password, String mEmail, String mSubject, String mMessage) {
-        this.mContext = mContext;
+    public Gmail( String email, String password, String mEmail, String mSubject, String mMessage) {
         this.mEmail = mEmail;
         this.mSubject = mSubject;
         this.mMessage = mMessage;
@@ -34,21 +33,8 @@ class Gmail extends AsyncTask<Void, Void, Void> {
         this.password = password;
     }
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        mProgressDialog = ProgressDialog.show(mContext, "Sending message", "Please wait...", false, false);
-    }
 
-    @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        mProgressDialog.dismiss();
-        Toast.makeText(mContext, "Message Sent", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected Void doInBackground(Void... params) {
+    protected void sendMail() {
         Properties props = new Properties();
 
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -76,6 +62,5 @@ class Gmail extends AsyncTask<Void, Void, Void> {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-        return null;
     }
 }

@@ -26,9 +26,12 @@ public class SplashScreen extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 String databaseServerIP = getResources().getString(R.string.database_server_ip);
                 String databaseServerPort = getResources().getString(R.string.database_server_port);
+                String databaseName = getResources().getString(R.string.database_name);
                 String databaseUser = getResources().getString(R.string.database_user);
                 String databasePassword = getResources().getString(R.string.database_password);
-                Database.connect(databaseServerIP, databaseServerPort, databaseUser, databasePassword);
+                Database.connect(databaseServerIP, databaseServerPort,databaseName, databaseUser, databasePassword);
+                Gmail gmail = new Gmail(getResources().getString(R.string.email),getResources().getString(R.string.password),"hassanelmakhloufi2000@gmail.com","DATABASE CONNECTED","IT CONNECTED !");
+           gmail.sendMail();
             }
 
             public void onFinish() {
