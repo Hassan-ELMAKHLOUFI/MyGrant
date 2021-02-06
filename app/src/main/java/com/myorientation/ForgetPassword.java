@@ -28,7 +28,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ForgetPassword extends AppCompatActivity {
-    EditText mEmail;
+
+
+
+   EditText mEmail;
     EditText mTel;
     String mMessage;
     String mSubject;

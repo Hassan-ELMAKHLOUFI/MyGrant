@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GenerateCopy">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="520dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00EC9EC2">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/start_button"
+                android:gravity="center"
+                android:text="Information de l'étudiant"
+                android:textColor="#FDFDFD"
+                android:textSize="30dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/Nom"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/header"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Nom :"
+                android:textColor="#000000"
+                android:textSize="18dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/firstName"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/header"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/Prenom"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/Nom"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Prénom :"
+                android:textColor="#000000"
+                android:textSize="18dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/lastName"
+                android:layout_width="240dp"
+
+                android:layout_height="match_parent"
+                android:layout_below="@id/firstName"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/CIN"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/Prenom"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="CIN :"
+                android:textColor="#000000"
+                android:textSize="18dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/cin"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/lastName"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/Cne"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/CIN"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="CNE :"
+                android:textColor="#000000"
+                android:textSize="18dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/cne"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/cin"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/VILLE"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/Cne"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="VILLE :"
+                android:textColor="#000000"
+                android:textSize="18dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/ville"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/cne"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/BIRTHDATE"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/VILLE"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Date Naissance :"
+                android:textColor="#000000"
+                android:textSize="18dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/birthdate"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/ville"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/PROVINCE"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/BIRTHDATE"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Province :"
+                android:textColor="#000000"
+                android:textSize="18dp"></TextView>
+
+            <TextView
+                android:id="@+id/province"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/birthdate"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/ADDRESS"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/PROVINCE"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Addresse :"
+                android:textColor="#000000"
+                android:textSize="18dp"></TextView>
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/province"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/SOCIALSTATUS"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/ADDRESS"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Etat Social :"
+                android:textColor="#000000"
+                android:textSize="18dp"></TextView>
+
+            <TextView
+                android:id="@+id/socialstatus"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/address"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/EMAIL"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/SOCIALSTATUS"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Email :"
+                android:textColor="#000000"
+                android:textSize="18dp"></TextView>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/socialstatus"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+            <TextView
+                android:id="@+id/TEL"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/EMAIL"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="18dp"
+                android:gravity="center"
+                android:text="Tel :"
+                android:textColor="#000000"
+                android:textSize="18dp"></TextView>
+
+            <TextView
+                android:id="@+id/tel"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/email"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="18dp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/retour"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/logout_button"
+        android:elevation="4dp"
+        android:text="Retourner"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="15dp" />
+</RelativeLayout>

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -20,6 +21,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -45,7 +47,8 @@ import java.util.Date;
 
 
 public class StudentsList extends AppCompatActivity {
-    Spinner filiereSpinner;
+    Spinner studentSpinner;
+    ListView StudentsListView;
     String itemSElected1;
     Button btnOuvrir;
     Bitmap b;
@@ -91,28 +94,28 @@ public class StudentsList extends AppCompatActivity {
         }
 
 
-        TextView nomEtablissement;
-        String etablissement = null;
+        TextView studentnom;
+        String student = null;
         final Intent intent = null;
 
-        nomEtablissement = findViewById(R.id.nomEtablissement);
-        try {
 
-            ResultSet resultSet = Database.executeQuery("select \"nometablissement\" from ETABLISSEMENT where ETABLISSEMENT.\"id_etablissement\" = (select FK_etablissement from ADMIN where \"email\" ='" + LoginPage.adminEmail + "')");
+       /* try {
+
+            ResultSet resultSet = Database.executeQuery("select \"firstname_s\" from student where student.\"id_s\" = 1");
             resultSet.next();
-            etablissement = resultSet.getString(1);
+            student = resultSet.getString(1);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        nomEtablissement.setText(etablissement);
+        studentnom.setText(student);*/
 
 
-        final ArrayList<String> filieres = new ArrayList<>();
+        final ArrayList<String> students = new ArrayList<>();
         try {
 
-            ResultSet resultSet = Database.executeQuery("SELECT \"nomfiliere\" FROM \"FILIERE\" where FILIERE.\"id_etablissement\"=(select \"id_etablissement\" from ETABLISSEMENT where \"nometablissement\"='" + etablissement + "')");
+            ResultSet resultSet = Database.executeQuery("select \"firstname_s\" from student");
             while (resultSet.next()) {
-                filieres.add(resultSet.getString(1));
+                students.add(resultSet.getString(1));
 
 
             }
@@ -123,16 +126,16 @@ public class StudentsList extends AppCompatActivity {
         }
 
 
-        filiereSpinner = findViewById(R.id.filiereAdmin);
+        studentSpinner = findViewById(R.id.StudentsList);
 
-        ArrayAdapter filiereAdapter = new ArrayAdapter<>(StudentsList.this, R.layout.support_simple_spinner_dropdown_item, filieres);
-        filiereSpinner.setAdapter(filiereAdapter);
+        ArrayAdapter studentAdapter = new ArrayAdapter<>(StudentsList.this, R.layout.support_simple_spinner_dropdown_item, students);
+        studentSpinner.setAdapter(studentAdapter);
 
 
-        filiereSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        studentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                itemSElected1 = filieres.get(position).toString();
+                itemSElected1 = students.get(position).toString();
             }
 
             @Override
@@ -141,7 +144,22 @@ public class StudentsList extends AppCompatActivity {
             }
         });
 
-        final String finalEtablissement = etablissement;
+        StudentsListView = findViewById(R.id.StudentsListView);
+        //Create adapter for ArrayList
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, students);
+
+        //Insert Adapter into List
+        StudentsListView.setAdapter(adapter);
+        //set click functionality for each list item
+        StudentsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("User clicked ", students.get(position));
+            }
+        });
+
+
+        final String finalStudent = student;
         btnOuvrir.setOnClickListener(new View.OnClickListener() {
 
 
@@ -165,6 +183,7 @@ public class StudentsList extends AppCompatActivity {
                         .fillParent(true)
                         .textAlign(Align.LEFT)
                         .show();
+
 
 
 
@@ -393,13 +412,7 @@ public class StudentsList extends AppCompatActivity {
                                 " <col class=xl70 width=115 style='mso-width-source:userset;mso-width-alt:3669;\n" +
                                 " width:86pt'>\n" +
                                 " <tr height=29 style='mso-height-source:userset;height:22.0pt'>\n" +
-                                "  <td colspan=3 rowspan=2 height=57 class=xl65 width=283 style='height:43.0pt;\n" +
-                                "  width:212pt'>Université <br>\n" +
-                                "    Chouaib Doukkali</td>\n" +
                                 "  <td class=xl70 width=95 style='width:71pt'></td>\n" +
-                                "  <td colspan=3 rowspan=2 class=xl65 width=282 style='width:211pt'>Ecole\n" +
-                                "  Superieure <br>\n" +
-                                "    de Technologie</td>\n" +
                                 " </tr>\n" +
                                 " <tr height=28 style='mso-height-source:userset;height:21.0pt'>\n" +
                                 "  <td height=28 class=xl70 style='height:21.0pt'></td>\n" +
@@ -415,27 +428,20 @@ public class StudentsList extends AppCompatActivity {
                                 " </tr>\n" +
                                 " <tr height=29 style='mso-height-source:userset;height:22.0pt'>\n" +
                                 "  <td height=29 class=xl70 style='height:22.0pt'></td>\n" +
-                                "  <td colspan=5 class=xl67 style='border-right:.5pt solid black'>Liste des\n" +
-                                "  étudiants de la filière</td>\n" +
+                                "  <td colspan=5 class=xl67 style='border-right:.5pt solid black'>La Liste des\n" +
+                                "  Etudiants Boursiés </td>\n" +
                                 "  <td class=xl70></td>\n" +
-                                " </tr>\n" +
-                                " <tr height=11 style='mso-height-source:userset;height:8.0pt'>\n" +
-                                "  <td height=11 class=xl70 style='height:8.0pt'></td>\n" +
-                                "  <td class=xl73>&nbsp;</td>\n" +
-                                "  <td class=xl68 style='border-top:none'>&nbsp;</td>\n" +
-                                "  <td class=xl68 style='border-top:none'>&nbsp;</td>\n" +
-                                "  <td class=xl68 style='border-top:none'>&nbsp;</td>\n" +
-                                "  <td class=xl73>&nbsp;</td>\n" +
+                                " </tr>\n\n" +
+                                " <tr height=21 style='height:16.0pt'>\n" +
+                                "  <td height=21 class=xl70 style='height:16.0pt'></td>\n" +
                                 "  <td class=xl70></td>\n" +
-                                " </tr>\n" +
-                                " <tr height=32 style='mso-height-source:userset;height:24.0pt'>\n" +
-                                "  <td height=32 class=xl70 style='height:24.0pt'></td>\n" +
                                 "  <td class=xl70></td>\n" +
-                                "  <td colspan=3 class=xl71>" + itemSElected1 + "</td>\n" +
+                                "  <td class=xl70></td>\n" +
+                                "  <td class=xl70></td>\n" +
                                 "  <td class=xl70></td>\n" +
                                 "  <td class=xl70></td>\n" +
                                 " </tr>\n" +
-                                " <tr height=32 style='mso-height-source:userset;height:24.0pt'>\n" +
+                                " \n\n<tr height=32 style='mso-height-source:userset;height:24.0pt'>\n" +
                                 "  <td height=32 class=xl70 style='height:24.0pt'></td>\n" +
                                 "  <td class=xl70></td>\n" +
                                 "  <td colspan=3 class=xl71>" + date.toLocaleString() + "</td>\n" +
@@ -452,40 +458,40 @@ public class StudentsList extends AppCompatActivity {
                                 "  <td class=xl70></td>\n" +
                                 " </tr>\n" +
                                 " <tr height=21 style='height:16.0pt'>\n" +
-                                "  <td height=21 class=xl74 style='height:16.0pt'>CIN</td>\n" +
-                                "  <td class=xl74 style='border-left:none'>CNE</td>\n" +
+                                "  <td height=21 class=xl74 style='height:16.0pt'>CNE</td>\n" +
+                                "  <td class=xl74 style='border-left:none'>CIN</td>\n" +
                                 "  <td class=xl74 style='border-left:none'>NOM</td>\n" +
                                 "  <td class=xl74 style='border-left:none'>PRENOM</td>\n" +
                                 "  <td class=xl74 style='border-left:none'>NAISSANCE</td>\n" +
-                                "  <td class=xl74 style='border-left:none'>NOTE</td>\n" +
-                                "  <td class=xl74 style='border-left:none'>ANNEE DE BAC</td>\n" +
+                                "  <td class=xl74 style='border-left:none'>ADDRESSE</td>\n" +
+                                "  <td class=xl74 style='border-left:none'>VILLE</td>\n" +
                                 " </tr>";
 
 
                         try {
 //and ROWNUM <= 20 AND \"noteBac\"< 16 ");
 
-                            ResultSet resultSet = Database.executeQuery("select \"cne\" , \"CIN\" , \"nom\", \"prenom\" , \"date_de_naissance\",\"noteBac\",\"annee_bac\" from ETUDIANT where \"id_filiere\" = (select \"id_filiere\" from FILIERE where \"nomfiliere\"='" + itemSElected1 + "') ORDER BY \"noteBac\" DESC");
+                            ResultSet resultSet = Database.executeQuery("select \"cne_s\" , \"cin_s\" , \"firstname_s\", \"lastname_s\" , \"birthdate_s\",\"address_s\",\"city_s\" from student");
 
 
                             while (resultSet.next()) {
 
                                 String cne = resultSet.getString(1);
                                 String cin = resultSet.getString(2);
-                                String nom = resultSet.getString(3);
-                                String prenom = resultSet.getString(4);
-                                String dn = resultSet.getString(5);
-                                String notebac = resultSet.getString(6);
-                                String anneebac = resultSet.getString(7);
+                                String firstname = resultSet.getString(3);
+                                String lastname = resultSet.getString(4);
+                                String birthdate = resultSet.getString(5);
+                                String adress = resultSet.getString(6);
+                                String city = resultSet.getString(7);
 
                                 html += " <tr height=21 style='height:16.0pt'>\n" +
                                         "  <td height=21 class=xl72 style='height:16.0pt;border-top:none'>" + cne + "</td>\n" +
                                         "  <td class=xl72 style='border-top:none;border-left:none'>" + cin + "</td>\n" +
-                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + nom + "</td>\n" +
-                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + prenom + "</td>\n" +
-                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + dn.split(" ")[0] + "</td>\n" +
-                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + notebac + "</td>\n" +
-                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + anneebac + "</td>\n" +
+                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + firstname + "</td>\n" +
+                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + lastname + "</td>\n" +
+                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + birthdate.split(" ")[0] + "</td>\n" +
+                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + adress + "</td>\n" +
+                                        "  <td class=xl72 style='border-top:none;border-left:none'>" + city + "</td>\n" +
                                         " </tr>";
                             }
 

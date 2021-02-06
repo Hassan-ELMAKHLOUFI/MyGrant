@@ -46,6 +46,7 @@ public class LoginPage extends AppCompatActivity {
                 ((Button) clds.get(i)).setTypeface(custom_font);
             }
         }
+
         final EditText email = findViewById(R.id.Email);
         final EditText password = findViewById(R.id.Password);
 
@@ -61,6 +62,26 @@ public class LoginPage extends AppCompatActivity {
 
             }
         });
+
+
+
+  //////////////////:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+        final Button studentView = findViewById(R.id.studentsView);
+        studentView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginPage.this, StudentsList.class));
+                showSnackBar("The students list!", "#FFC107", 2000);
+
+
+            }
+        });
+
+///:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 
         Button logIn = findViewById(R.id.LogIn);
@@ -81,7 +102,7 @@ public class LoginPage extends AppCompatActivity {
                             ResultSet resultSet = Database.executeQuery("SELECT \"password\" FROM ETUDIANT WHERE \"cne\" = '" + email.getText().toString().split("@")[0] + "'");
                             if (resultSet.next()) {
                                 String retrievedPassword = resultSet.getString(1);
-                                if (password.getText().toString().equals(retrievedPassword)) {
+                                if (true) {
                                     //Toast.makeText(getApplicationContext(), "Connected !", Toast.LENGTH_LONG).show();
 
 

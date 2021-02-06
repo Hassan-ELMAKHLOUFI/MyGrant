@@ -163,6 +163,20 @@
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="26sp" />
+        <Button
+            android:id="@+id/studentsView"
+            android:layout_width="240dp"
+            android:layout_height="45dp"
+            android:layout_below="@id/Forget"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/logout_button"
+            android:elevation="4dp"
+            android:text="@string/students_view"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="26sp" />
 
 
     </RelativeLayout>

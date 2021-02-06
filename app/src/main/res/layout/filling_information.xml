@@ -210,8 +210,8 @@
                     android:inputType="text"
 
                     android:selectAllOnFocus="true"
-                    
-                    
+
+
                      />
 
                 <TextView
@@ -241,8 +241,8 @@
                     android:text="Etablissement"
                     android:textColor="@android:color/holo_red_light"
                     android:textSize="20sp"
-                    
-                    
+
+
                      />
 
                 <TextView
@@ -273,8 +273,8 @@
                     android:hint="Veuillez entrez votre date de Naissance"
                     android:inputType="date"
                     android:selectAllOnFocus="true"
-                    
-                    
+
+
                      />
 
                 <TextView
@@ -334,8 +334,8 @@
                     android:hint="la date d'obtention du bac"
                     android:inputType="date"
                     android:selectAllOnFocus="true"
-                    
-                    
+
+
                      />
 
                 <TextView

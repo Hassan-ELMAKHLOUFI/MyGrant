@@ -37,11 +37,11 @@
     <RelativeLayout
         android:id="@+id/FirstPlayerPart"
         android:layout_width="340dp"
-        android:layout_height="wrap_content"
+        android:layout_height="450dp"
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:background="@drawable/start"
-        android:elevation="8dp">
+        android:elevation="15dp">
 
         <TextView
             android:id="@+id/FirstPlayerName"
@@ -70,45 +70,18 @@
             android:gravity="center"
             android:paddingLeft="6dp"
             android:paddingRight="6dp"
-            android:text="Hi dear student, if this is your first loging in to the application, please use your by uppercase, after signing in you must change it"
+            android:text="Hi dear administrator, there is the students list!"
             android:textColor="#E91E63"
             android:textSize="14sp"
             android:textStyle="bold" />
 
 
-        <TextView
-            android:id="@+id/nomEtablissement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Infos"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:padding="6dp"
-            android:text="Veuillez sélectionner la filière :"
-            android:textColor="#009688"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:id="@+id/EmailText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nomEtablissement"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="Veuillez sélectionner la filière :"
-            android:textColor="#000000"
-            android:textSize="24sp" />
-
 
         <Spinner
-            android:id="@+id/filiereAdmin"
+            android:id="@+id/StudentsList"
             android:layout_width="320dp"
             android:layout_height="50dp"
-            android:layout_below="@id/EmailText"
+            android:layout_below="@id/Infos"
             android:layout_marginStart="24dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="24dp"
@@ -116,25 +89,46 @@
             android:elevation="2dp"
             android:gravity="center"
             android:selectAllOnFocus="true"
-            android:text="Etablissement"
+            android:text="Students"
             android:textAlignment="center"
             android:textColor="@android:color/holo_red_light"
             android:textSize="20sp" />
+
+        <ListView
+            android:id="@+id/StudentsListView"
+            android:layout_width="320dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/StudentsList"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:selectAllOnFocus="true"
+            android:text="Students List"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="20sp" />
+
+
+
+
+
 
 
         <Button
             android:id="@+id/ouvrir_pdf"
             android:layout_width="240dp"
             android:layout_height="50dp"
-            android:layout_below="@id/filiereAdmin"
+            android:layout_below="@id/StudentsListView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/logout_button"
             android:elevation="4dp"
             android:text="Imprimer Le PDF"
             android:textAllCaps="false"
             android:textColor="#fff"
-            android:textSize="26sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 </RelativeLayout>

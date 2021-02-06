@@ -2,14 +2,11 @@
 <resources>
 
 
-    <string name="database_server_ip">2.tcp.ngrok.io</string>
-    <string name="database_server_port">17833</string>
+    <string name="database_server_ip">4.tcp.ngrok.io</string>
+    <string name="database_server_port">10109</string>
     <string name="database_user">postgres</string>
     <string name="database_name">studentgrantsmanagement</string>
-    <string name="database_password">postgres</string>
-
-
-
+    <string name="database_password">root</string>
 
     <string name="email">my.grant.ensetm@gmail.com</string>
     <string name="password">HGyt@d@f@#lk3##+=gh[c{v4#{#</string>
