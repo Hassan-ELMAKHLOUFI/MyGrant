@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/Layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -89,7 +90,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/nomText"
+                    android:id="@+id/firstnameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -102,11 +103,11 @@
 
                 <EditText
 
-                    android:id="@+id/nom"
+                    android:id="@+id/Firstname"
 
                     android:layout_width="320dp"
                     android:layout_height="50dp"
-                    android:layout_below="@id/nomText"
+                    android:layout_below="@id/firstnameText"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="2dp"
                     android:layout_marginEnd="24dp"
@@ -121,10 +122,10 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/prenomText"
+                    android:id="@+id/LastnameText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/nom"
+                    android:layout_below="@id/Firstname"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
@@ -133,10 +134,10 @@
                     android:textSize="24dp" />
 
                 <EditText
-                    android:id="@+id/prenom"
+                    android:id="@+id/Lastname"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
-                    android:layout_below="@id/prenomText"
+                    android:layout_below="@id/LastnameText"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
@@ -153,7 +154,7 @@
                     android:id="@+id/cinText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/prenom"
+                    android:layout_below="@id/Lastname"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
@@ -162,7 +163,7 @@
                     android:textSize="24dp" />
 
                 <EditText
-                    android:id="@+id/cin"
+                    android:id="@+id/Cin"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:layout_below="@id/cinText"
@@ -185,7 +186,7 @@
                     android:id="@+id/cneText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/cin"
+                    android:layout_below="@id/Cin"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
@@ -214,51 +215,22 @@
                     
                      />
 
+
+
                 <TextView
-                    android:id="@+id/etablissementText"
+                    android:id="@+id/datenaissanceText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/cne"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Etablissement :"
-                    android:textColor="#000000"
-                    android:textSize="24dp" />
-
-                <Spinner
-                    android:id="@+id/etablissement"
-                    android:layout_width="320dp"
-                    android:layout_height="50dp"
-                    android:gravity="center"
-                    android:elevation="2dp"
-                    android:background="@drawable/input"
-                    android:layout_below="@id/etablissementText"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp"
-                    android:selectAllOnFocus="true"
-                    android:text="Etablissement"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="20sp"
-                    
-                    
-                     />
-
-                <TextView
-                    android:id="@+id/datenaissanceText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/etablissement"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    android:text="Date de Naissance :"
+                    android:text="Birthday Date:"
                     android:textColor="#000000"
                     android:textSize="24dp" />
 
                 <EditText
-                    android:id="@+id/datenaissance"
+                    android:id="@+id/Birthdate"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:gravity="center"
@@ -270,27 +242,27 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
-                    android:hint="Veuillez entrez votre date de Naissance"
-                    android:inputType="date"
+                    android:hint="Birthdate"
+                    android:inputType="text"
                     android:selectAllOnFocus="true"
                     
                     
                      />
 
                 <TextView
-                    android:id="@+id/notebacText"
+                    android:id="@+id/CityText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/datenaissance"
+                    android:layout_below="@id/Birthdate"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Note du Bac :"
+                    android:text="City :"
                     android:textColor="#000000"
                     android:textSize="24dp" />
 
                 <EditText
-                    android:id="@+id/notebac"
+                    android:id="@+id/City"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:gravity="center"
@@ -298,28 +270,28 @@
                     android:background="@drawable/input"
                     android:textSize="20sp"
                     android:textColor="#000000"
-                    android:layout_below="@id/notebacText"
+                    android:layout_below="@id/CityText"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:hint="Veuillez entrez votre note de bac"
-                    android:inputType="numberDecimal"
+                    android:inputType="text"
                     android:selectAllOnFocus="true" />
 
                 <TextView
-                    android:id="@+id/datebacText"
+                    android:id="@+id/ProvinceText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/notebac"
+                    android:layout_below="@id/City"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Date d'obtention du bac"
+                    android:text="Province"
                     android:textColor="#000000"
                     android:textSize="24dp" />
 
                 <EditText
-                    android:id="@+id/datebac"
+                    android:id="@+id/Province"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:gravity="center"
@@ -327,47 +299,46 @@
                     android:background="@drawable/input"
                     android:textSize="20sp"
                     android:textColor="#000000"
-                    android:layout_below="@id/datebacText"
+                    android:layout_below="@id/ProvinceText"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
-                    android:hint="la date d'obtention du bac"
-                    android:inputType="date"
+                    android:hint="Province"
+                    android:inputType="text"
                     android:selectAllOnFocus="true"
                     
                     
                      />
 
                 <TextView
-                    android:id="@+id/filiereText"
+                    android:id="@+id/AdressText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/datebac"
+                    android:layout_below="@id/Province"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="choisissez Filiére"
+                    android:text="Adress"
                     android:textColor="#000000"
                     android:textSize="24dp" />
 
 
-
-
-                <Spinner
-                    android:id="@+id/filiere"
+                <EditText
+                    android:id="@+id/Adress"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:elevation="2dp"
                     android:background="@drawable/input"
-                    android:layout_below="@id/filiereText"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:layout_below="@id/AdressText"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
+                    android:hint="Adress"
+                    android:inputType="text"
                     android:selectAllOnFocus="true"
-                    android:text="Filiére"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="20sp"
 
 
                     />
@@ -381,20 +352,22 @@
 
 
 
+
+
                 <TextView
-                    android:id="@+id/telText"
+                    android:id="@+id/SocilastatusText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/filiere"
+                    android:layout_below="@id/Adress"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
-                    android:text="Telephone"
+                    android:text="social status"
                     android:textColor="#000000"
                     android:textSize="24dp" />
 
                 <EditText
-                    android:id="@+id/tel"
+                    android:id="@+id/Socilastatus"
                     android:layout_width="320dp"
                     android:layout_height="50dp"
                     android:gravity="center"
@@ -402,19 +375,19 @@
                     android:background="@drawable/input"
                     android:textSize="20sp"
                     android:textColor="#000000"
-                    android:layout_below="@id/telText"
+                    android:layout_below="@id/SocilastatusText"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
-                    android:hint="numéro de telephone"
-                    android:inputType="phone"
+                    android:hint="social status"
+                    android:inputType="text"
                     android:selectAllOnFocus="true" />
 
                 <TextView
                     android:id="@+id/emailText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tel"
+                    android:layout_below="@id/Socilastatus"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="8dp"
                     android:gravity="center"
@@ -435,15 +408,95 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
-                    android:hint="Veuillez entrez votre email"
+                    android:hint="email"
                     android:inputType="textEmailAddress"
                     android:selectAllOnFocus="true" />
 
+
+                <TextView
+                    android:id="@+id/ProfilephotoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/email"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Profile image:"
+                    android:textColor="#000000"
+                    android:textSize="24dp" />
+
+
                 <Button
-                    android:id="@+id/enregistrer"
+                    android:id="@+id/Profilephoto"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+
+                    android:layout_below="@id/ProfilephotoText"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/logout_button"
+                    android:elevation="4dp"
+                    android:text="Profile image "
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="26dp"
+                    android:onClick="btn"
+                    />
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@mipmap/ic_launcher"
+                    android:layout_below="@+id/ProfilephotoText"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:visibility="gone"
+                    android:layout_marginTop="18dp" />
+
+
+                <TextView
+                    android:id="@+id/FullnumberText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/Profilephoto"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Full number:"
+                    android:textColor="#000000"
+                    android:textSize="24dp" />
+
+                <EditText
+                    android:id="@+id/Fullnumber"
+                    android:layout_width="320dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:elevation="2dp"
+                    android:background="@drawable/input"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:layout_below="@id/FullnumberText"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:hint="Full number"
+                    android:inputType="text"
+                    android:selectAllOnFocus="true" />
+
+
+
+
+
+                <Button
+                    android:id="@+id/valider"
                     android:layout_width="140dp"
                     android:layout_height="50dp"
-                    android:layout_below="@id/email"
+                    android:layout_below="@id/Fullnumber"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="16dp"
                     android:layout_marginTop="15dp"
@@ -453,13 +506,15 @@
                     android:text="Valider"
                     android:textAllCaps="false"
                     android:textColor="#fff"
-                    android:textSize="26dp" />
+                    android:textSize="26dp"
+                    android:onClick="btn"
+                    />
 
                 <Button
-                    android:id="@+id/valider"
+                    android:id="@+id/enregistrer"
                     android:layout_width="140dp"
                     android:layout_height="50dp"
-                    android:layout_below="@id/email"
+                    android:layout_below="@id/Fullnumber"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="15dp"

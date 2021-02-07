@@ -1,43 +1,102 @@
 package com.myorientation;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.media.VolumeShaper;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.TranslateAnimation;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.sql.*;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
-import com.chootdev.csnackbar.Align;
-import com.chootdev.csnackbar.Duration;
-import com.chootdev.csnackbar.Snackbar;
-import com.chootdev.csnackbar.Type;
+import com.nbsp.materialfilepicker.MaterialFilePicker;
+import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.DriverManager;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.regex.Pattern;
 
-public class FillingInformation<simpleSpinner> extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Spinner etablissementSpinner, filiereSpinner;
-    TextView textPopup;
-    EditText editTextNom, editTextPrenom, editTextCin, editTextCne, editTextEtablissement, editTextDateNaissance, editTextNoteBac, editTextDateBac, editTextFiliere, editTextTel, editTextEmail;
-    Button btnEnregistrer, btnValider;
+public class FillingInformation<simpleSpinner> extends AppCompatActivity   {
+    EditText editTextFirstname, editTextLastname, editTextBirthdate, editTextCity, editTextProvince, editTextAdress, editTextCne, editTextCin, editTextSocilastatus, editTextEmail,editTextProfilephoto,editTextFullnumber,editTextPassword;
+    Button btnEnregistrer,  btnChoose,btnValider ;
     String itemSElected1, itemSElected2;
+    final int REQUEST_CODE_GALLERY = 999;
+    ImageView imageView;
+
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if(requestCode == REQUEST_CODE_GALLERY){
+            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Intent intent = new Intent(Intent.ACTION_PICK);
+                intent.setType("image/*");
+                startActivityForResult(intent, REQUEST_CODE_GALLERY);
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "You don't have permission to access file location!", Toast.LENGTH_SHORT).show();
+            }
+            return;
+        }
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
+
+
+
+
+
+    public static byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
+
+
+
+
+
+
+
+
+
 
 
     @Override
@@ -54,17 +113,40 @@ public class FillingInformation<simpleSpinner> extends AppCompatActivity impleme
         Context contex = null;
 
 
-        editTextNom = findViewById(R.id.nom);
-        editTextPrenom = findViewById(R.id.prenom);
-        editTextCin = findViewById(R.id.cin);
+        editTextFirstname= findViewById(R.id.Firstname);
+        editTextLastname = findViewById(R.id.Lastname);
+        editTextBirthdate = findViewById(R.id.Birthdate);
+        editTextCity = findViewById(R.id.City);
+        editTextProvince = findViewById(R.id.Province);
+        editTextAdress = findViewById(R.id.Adress);
+        editTextCin = findViewById(R.id.Cin);
         editTextCne = findViewById(R.id.cne);
-        //editTextEtablissement =(EditText) findViewById(R.id.etablissement);
-        editTextDateNaissance = findViewById(R.id.datenaissance);
-        editTextNoteBac = findViewById(R.id.notebac);
-        editTextDateBac = findViewById(R.id.datebac);
-        // editTextFiliere = findViewById(R.id.filiere);
-        editTextTel = findViewById(R.id.tel);
+        editTextSocilastatus = findViewById(R.id.Socilastatus);
         editTextEmail = findViewById(R.id.email);
+        editTextFullnumber = findViewById(R.id.Fullnumber);
+        imageView = (ImageView) findViewById(R.id.imageView);
+
+       // imageView.setImageResource(R.mipmap.ic_launcher);
+        btnChoose= findViewById(R.id.Profilephoto);
+        btnChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(
+                        FillingInformation.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GALLERY
+                );
+            }
+        });
+
+
+
+
+
+
+
+
+
 
 
         btnValider = findViewById(R.id.valider);
@@ -73,11 +155,11 @@ public class FillingInformation<simpleSpinner> extends AppCompatActivity impleme
             public void onClick(View v) {
 
 
-                if (editTextNom.getText().toString().isEmpty() || editTextPrenom.getText().toString().isEmpty()
+                if (editTextFirstname.getText().toString().isEmpty() || editTextLastname.getText().toString().isEmpty()
                         || editTextCin.getText().toString().isEmpty() || editTextCne.getText().toString().isEmpty()
-                        || editTextDateNaissance.getText().toString().isEmpty() || editTextNoteBac.getText().toString().isEmpty()
-                        || editTextDateBac.getText().toString().isEmpty() || editTextTel.getText().toString().isEmpty()
-                        || editTextTel.getText().toString().isEmpty()) {
+                        || editTextBirthdate.getText().toString().isEmpty() || editTextCity.getText().toString().isEmpty()
+                        || editTextProvince.getText().toString().isEmpty() || editTextAdress.getText().toString().isEmpty()
+                        || editTextSocilastatus.getText().toString().isEmpty() || editTextProfilephoto.getText().toString().isEmpty() || editTextFullnumber.getText().toString().isEmpty()) {
                     showSnackBar("Rien pour enregistrer !", "#FFC107", 1500);
                 } else {
 
@@ -85,15 +167,24 @@ public class FillingInformation<simpleSpinner> extends AppCompatActivity impleme
                 }
             }
         });
-        btnEnregistrer = (Button)
-
-                findViewById(R.id.enregistrer);
+        btnEnregistrer = findViewById(R.id.enregistrer);
         btnEnregistrer.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                EditText[] arrayOfEditTexts = {editTextNom, editTextPrenom, editTextCin, editTextCne, editTextEtablissement, editTextDateNaissance, editTextNoteBac, editTextDateBac, editTextFiliere, editTextTel, editTextEmail};
 
-                if (editTextNom.getText().toString().isEmpty() || editTextPrenom.getText().toString().isEmpty() || editTextCin.getText().toString().isEmpty() || editTextCne.getText().toString().isEmpty() || editTextDateNaissance.getText().toString().isEmpty() || editTextNoteBac.getText().toString().isEmpty() || editTextDateBac.getText().toString().isEmpty() || editTextTel.getText().toString().isEmpty() || editTextTel.getText().toString().isEmpty())
+              //  Log.d("ensetm","connected successfully to database");
+
+
+          if (editTextFirstname.getText().toString().isEmpty() || editTextLastname.getText().toString().isEmpty()
+                        || editTextCin.getText().toString().isEmpty() || editTextCne.getText().toString().isEmpty()
+                        || editTextBirthdate.getText().toString().isEmpty() || editTextCity.getText().toString().isEmpty()
+                        || editTextProvince.getText().toString().isEmpty() || editTextAdress.getText().toString().isEmpty()
+                        || editTextSocilastatus.getText().toString().isEmpty()  || editTextFullnumber.getText().toString().isEmpty()){}
+
+
+              /*
+
                     Snackbar.with(FillingInformation.this, null)
                             .type(Type.ERROR)
                             .message("Quelque informations manquantes ! faites attention!! ")
@@ -101,45 +192,109 @@ public class FillingInformation<simpleSpinner> extends AppCompatActivity impleme
                             .fillParent(true)
                             .textAlign(Align.LEFT)
                             .show();
-
+*/
                     // showSnackBar("Please fill in all the blanks correctly !", "#FFC107", 1500);
 
 
                 else {
-                    String nomvalue = editTextNom.getText().toString();
-                    String prenomvalue = editTextPrenom.getText().toString();
-                    String cinvalue = editTextCin.getText().toString();
-                    String cnevalue = editTextCne.getText().toString();
-                    //String etablissementvalue= editTextEtablissement.getText().toString();
-                    String datenaissancevalue = editTextDateNaissance.getText().toString();
-                    String notebacvalue = editTextNoteBac.getText().toString();
-                    String datebacvalue = editTextDateBac.getText().toString();
-                    // String filierevalue= editTextFiliere.getText().toString();
-                    String telvalue = editTextTel.getText().toString();
-                    String emailvalue = editTextEmail.getText().toString();
-                    Intent intent = new Intent(FillingInformation.this, GenerateCopy.class);
-                    intent.putExtra("nom", nomvalue);
-                    intent.putExtra("prenom", prenomvalue);
-                    intent.putExtra("cin", cinvalue);
-                    intent.putExtra("cne", cnevalue);
-                    // intent.putExtra("etablissement",etablissementvalue);
-                    intent.putExtra("datenaissance", datenaissancevalue);
-                    intent.putExtra("notebac", notebacvalue);
-                    intent.putExtra("datebac", datebacvalue);
-                    //intent.putExtra("filiere",filierevalue);
-                    intent.putExtra("tel", telvalue);
-                    intent.putExtra("email", emailvalue);
-                    intent.putExtra("etablissement", itemSElected1);
-                    intent.putExtra("filiere", itemSElected2);
-                    startActivity(intent);
 
+
+                    String Firstnamevalue = editTextFirstname.getText().toString();
+                    String Lastnamevalue = editTextLastname.getText().toString();
+                    String Cnevalue = editTextCne.getText().toString();
+                    String Cinvalue = editTextCin.getText().toString();
+                    String Birthdatevalue = editTextBirthdate.getText().toString();
+                    String Cityvalue = editTextCity.getText().toString();
+                    String Provincevalue= editTextProvince.getText().toString();
+                    String Adressvalue = editTextAdress.getText().toString();
+                    String Socilastatusvalue = editTextSocilastatus.getText().toString();
+                    //String Profilephotovalue = editTextProfilephoto.getText().toString();
+                    int Fullnumbervalue = Integer.parseInt( editTextFullnumber.getText().toString());
+                    String Emailvalue = editTextEmail.getText().toString();
+
+                    Intent intent = new Intent(FillingInformation.this, GenerateCopy.class);
+                    intent.putExtra("Firstname", Firstnamevalue);
+                    intent.putExtra("Lastname", Lastnamevalue);
+                    intent.putExtra("Cne", Cnevalue );
+                    intent.putExtra("Cin", Cinvalue);
+                    intent.putExtra("Birthdate", Birthdatevalue);
+                    intent.putExtra("City", Cityvalue);
+                    intent.putExtra("Province", Provincevalue);
+                    intent.putExtra("Adress", Adressvalue);
+                    intent.putExtra("Socilastatus", Socilastatusvalue);
+                   // intent.putExtra("Profilephoto", Profilephotovalue);
+                    intent.putExtra("Fullnumber", Fullnumbervalue);
+                    intent.putExtra("Email", Emailvalue);
+
+                    startActivity(intent);
+                    String databaseServerIP = getResources().getString(R.string.database_server_ip);
+                    String databaseServerPort = getResources().getString(R.string.database_server_port);
+                    String databaseName = getResources().getString(R.string.database_name);
+                    String databaseUser = getResources().getString(R.string.database_user);
+                    String databasePassword = getResources().getString(R.string.database_password);
+                    Connection con = null;
 
                     try {
+                        Class.forName("org.postgresql.Driver");
+
+                        con = DriverManager.getConnection("jdbc:postgresql://"+databaseServerIP+":"+databaseServerPort+"/"+databaseName, databaseUser, databasePassword);
+
+                        PreparedStatement statement = con.prepareStatement("INSERT INTO student (id_s, firstname_s, lastname_s, cne_s, cin_s,Birthdate_s,City_s,province_s, address_s, socilastatus_s, POFILEPHOTO_S, fullnumber_s,email_s)  VALUES (DEFAULT,?,?,?,?,?,?,?,?,?,?,?,?)");
+                       /*
+                        String query = "INSERT INTO university (id_u, name_u) VALUES (DEFAULT, ?)";
+                        PreparedStatement preparedStatement = Database.connection.prepareStatement(query);
+                        preparedStatement.setString(1, universityName.getText().toString().trim());
+                        int result = preparedStatement.executeUpdate();
+                        if (result == 1) {
+                            showSnackBar("Saved", "#E91E63", 2000);
+                        }*/
+
+                        statement.setString(1, Firstnamevalue);
+                        statement.setString(2, Lastnamevalue);
+                        statement.setString(3, Cnevalue);
+                        statement.setString(4, Cinvalue);
+                        java.util.Calendar cal = Calendar.getInstance();
+                        Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(Birthdatevalue);
+                        cal.setTime(date1);
+                        cal.set(Calendar.HOUR_OF_DAY, 0);
+                        cal.set(Calendar.MINUTE, 0);
+                        cal.set(Calendar.SECOND, 0);
+                        cal.set(Calendar.MILLISECOND, 0);
+                        java.sql.Date sqlDate = new java.sql.Date(cal.getTime().getTime());
+
+                        statement.setDate(5,sqlDate);
+                        statement.setString(6, Cityvalue);
+                        statement.setString(7, Provincevalue);
+                        statement.setString(8, Adressvalue);
+                        statement.setString(9, Socilastatusvalue);
+
+                        byte[] image =imageViewToByte(imageView);
+                        statement.setBytes(10, image);
+                        statement.setInt(11, Fullnumbervalue);
+                        statement.setString(12, Emailvalue);
+                        Log.d("ensetm","test test");
+                        int i=statement.executeUpdate();
+                        con.close();
+
+                    } catch (Exception e) {
+                        Log.d("ensetm",e.getMessage());
+
+                    }
 
 
-                        //Database.connect();
-                        ResultSet resultSet = Database.executeQuery("INSERT INTO  \"ETUDIANT\"    (\"nom\", \"prenom\", \"cne\", \"etablissement\", \"date_de_naissance\",\"annee_bac\", \"Tel\", \"noteBac\", EMAIL, CIN)       VALUES(\'" + nomvalue + "\',\'" + prenomvalue + "\',\'" + cnevalue + "\',\'" + itemSElected1 + "\'," + "to_date(\'" + datenaissancevalue + "\', 'yyyy-mm-dd')" + ",\'" + datebacvalue + "\',\'" + telvalue + "\',\'" + notebacvalue + "\',\'" + emailvalue + "\',\'" + cinvalue + "\')");
-                        resultSet = Database.executeQuery("UPDATE ETUDIANT set \"id_filiere\"=(select \"id_filiere\" from FILIERE where \"nomfiliere\" = \'" + itemSElected2 + "\') where CIN = \'" + cinvalue + "\'");
+
+/*
+                    try {
+                        String databaseServerIP = getResources().getString(R.string.database_server_ip);
+                        String databaseServerPort = getResources().getString(R.string.database_server_port);
+                        String databaseName = getResources().getString(R.string.database_name);
+                        String databaseUser = getResources().getString(R.string.database_user);
+                        String databasePassword = getResources().getString(R.string.database_password);
+                        Database.connect(databaseServerIP, databaseServerPort,databaseName, databaseUser, databasePassword);
+
+
+                      //  ResultSet resultSet = Database.executeQuery("INSERT INTO  \"student\"    (\"id_e\",\"Firstname\", \"Lastname\", \"Cne\", \"Cin\", \"Birthdate\",\"City\", \"Province\", \"Adress\", \"Socilastatus\", \"Profilephoto\", \"Fullnumber\",\"Email\")       VALUES(\'1\',\'" + Firstnamevalue + "\',\'" + Lastnamevalue+ "\',\'" + Cnevalue + "\',\'" + Cinvalue + "\'," + "to_date(\'" + Birthdatevalue+ "\', 'yyyy-mm-dd')" + ",\'" + Cityvalue+ "\',\'" + Provincevalue+ "\',\'" + Adressvalue  + "\',\'" + Socilastatusvalue + "\',\'" + Profilephotovalue+ "\',\'" + Fullnumbervalue+ "\',\'" + Emailvalue+ "\')");
+                         ResultSet resultSet = Database.executeQuery("INSERT INTO  \"student\"    (\"id_e\",\"Firstname\", \"Lastname\")       VALUES(\'1\',\'" + Firstnamevalue + "\',\'" + Lastnamevalue+ "\'");
 
                         resultSet = Database.executeQuery("commit");
 
@@ -149,89 +304,22 @@ public class FillingInformation<simpleSpinner> extends AppCompatActivity impleme
                         showSnackBar(e.getErrorCode() + "", "#FFC107", 1500);
 
                     }
-
+*/
 
                 }
             }
 
         });
 
-        final ArrayList<String> etablissements = new ArrayList<>();
-        final ArrayList<String> filieres = new ArrayList<>();
-        try {
-
-            ResultSet resultSet = Database.executeQuery("SELECT \"nometablissement\" FROM \"ETABLISSEMENT\"");
-            while (resultSet.next()) {
-                etablissements.add(resultSet.getString(1));
 
 
-            }
-
-        } catch (
-                Exception e) {
-            e.printStackTrace();
-        }
-        try {
-            ResultSet resultSet = Database.executeQuery("SELECT \"nomfiliere\" FROM \"FILIERE\"");
-            while (resultSet.next()) {
-                filieres.add(resultSet.getString(1));
 
 
-            }
 
 
-        } catch (
-                Exception e) {
-            e.printStackTrace();
-        }
-
-        etablissementSpinner = (Spinner)
-
-                findViewById(R.id.etablissement);
-
-        filiereSpinner = (Spinner)
-
-                findViewById(R.id.filiere);
 
 
-        ArrayAdapter etablissementAdapter = new ArrayAdapter<>(FillingInformation.this, R.layout.support_simple_spinner_dropdown_item, etablissements);
 
-        ArrayAdapter filiereAdapter = new ArrayAdapter<>(FillingInformation.this, R.layout.support_simple_spinner_dropdown_item, filieres);
-        etablissementSpinner.setAdapter(etablissementAdapter);
-        filiereSpinner.setAdapter(filiereAdapter);
-
-        etablissementSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position,
-                                       long id) {
-                // Toast.makeText(FillingInformation.this, etablissements.get(position), Toast.LENGTH_LONG).show();
-                itemSElected1 = etablissements.get(position).toString();
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        filiereSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position,
-                                       long id) {
-
-                itemSElected2 = filieres.get(position).toString();
-
-
-                // Toast.makeText(FillingInformation.this, filieres.get(position), Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         RelativeLayout StartLayout = findViewById(R.id.Layout);
 
@@ -273,16 +361,8 @@ public class FillingInformation<simpleSpinner> extends AppCompatActivity impleme
     }
 
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), "Great Choice", Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
 
-    }
 
     public void showSnackBar(String message, String color, int visibilityTime) {
         final TextView alert = findViewById(R.id.Alert);
@@ -312,4 +392,24 @@ public class FillingInformation<simpleSpinner> extends AppCompatActivity impleme
     }
 
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK && data != null){
+            Uri uri = data.getData();
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(uri);
+
+                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                imageView.setImageBitmap(bitmap);
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

@@ -21,7 +21,9 @@ android {
         pickFirst 'META-INF/LICENSE.txt'
     }
 }
-
+repositories {
+    jcenter()
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'org.postgresql:postgresql:42.2.5.jre7'
@@ -44,4 +46,5 @@ dependencies {
     implementation "com.itextpdf:svg:7.1.9"
     implementation 'com.itextpdf:html2pdf:2.1.6'
     implementation 'com.itextpdf:itext7-core:7.1.9'
+    implementation 'com.nbsp:materialfilepicker:1.9.1'
 }

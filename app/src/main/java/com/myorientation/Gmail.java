@@ -53,10 +53,12 @@ public class Gmail {
 
         try {
             MimeMessage mm = new MimeMessage(mSession);
+            mm.setContent(mMessage,"text/html");
+
             mm.setFrom(new InternetAddress(email));
             mm.addRecipient(Message.RecipientType.TO, new InternetAddress(mEmail));
             mm.setSubject(mSubject);
-            mm.setText(mMessage);
+            //mm.setText(mMessage);
             Transport.send(mm);
 
         } catch (MessagingException e) {
