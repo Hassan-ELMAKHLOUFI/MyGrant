@@ -29,7 +29,6 @@ public class SplashScreen extends AppCompatActivity {
         StrictMode.setThreadPolicy(policy);
         new CountDownTimer(2000, 1000) {
             public void onTick(long millisUntilFinished) {
-               Log.d("ensetm","connected successfully to database");
                 String databaseServerIP = getResources().getString(R.string.database_server_ip);
                 String databaseServerPort = getResources().getString(R.string.database_server_port);
                 String databaseName = getResources().getString(R.string.database_name);
@@ -41,6 +40,35 @@ public class SplashScreen extends AppCompatActivity {
 
 
 
+                ResultSet rs;
+                int id_g;
+                String firstname;
+                String id_g_s;
+                String lastname;
+                String fullnumber ;
+                String cin ;
+                String State="";
+                String email;
+
+                try {
+                    Statement stmt = Database.connection.createStatement();
+                     rs = stmt.executeQuery("SELECT * FROM student ");
+
+                    while (rs.next()) {
+                       id_g_s =rs.getString("id_g") ;
+                       if (id_g_s!=null){
+
+
+
+                        firstname =(rs.getString("firstname_s")) ;
+                        lastname =(rs.getString("lastname_s")) ;
+                        fullnumber =(rs.getString("fullnumber_s")) ;
+                        cin =(rs.getString("cin_s")) ;
+                        email =(rs.getString("email_s")) ;
+
+
+                    State="Félicitation vous avez obtenue la bourse";
+               
 
 
 
@@ -187,7 +215,7 @@ public class SplashScreen extends AppCompatActivity {
                         "            <table cellspacing=\"0\" cellpadding=\"0\" width=\"500\" class=\"w320\">\n" +
                         "              <tr>\n" +
                         "                <td valign=\"top\" style=\"padding:10px 0; text-align:left;\" class=\"mobile-center\">\n" +
-                        "                  <img width=\"250\" height=\"62\" src=\"https://www.filepicker.io/api/file/TtSuN5UdTmO0NXWPfYCJ\">\n" +
+                        "                  " +
                         "                </td>\n" +
                         "              </tr>\n" +
                         "            </table>\n" +
@@ -211,7 +239,7 @@ public class SplashScreen extends AppCompatActivity {
                         "                      <tr>\n" +
                         "                        <td>\n" +
                         "                          <h1></h1><br>\n" +
-                        "                          <h2>To track your order or make any changes please click the button below.</h2>\n" +
+                        "                          <h2>"+State+".</h2>\n" +
                         "                          <br>\n" +
                         "                        </td>\n" +
                         "                      </tr>\n" +
@@ -222,9 +250,8 @@ public class SplashScreen extends AppCompatActivity {
                         "                    <td class=\"hide reveal\">\n" +
                         "                      &nbsp;\n" +
                         "                    </td>\n" +
-                        "                      <td style=\"width:150px; height:33px; background-color: #3bcdc3;\" >\n" +
+
                         "                        <div>\n" +
-                        "                          <a href=\"#\" style=\"background-color:#3bcdc3;border-radius:4px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:150px;-webkit-text-size-adjust:none;\">My Order</a>\n" +
                         "                          </div>\n" +
                         "                      </td>\n" +
                         "                      <td>\n" +
@@ -258,20 +285,14 @@ public class SplashScreen extends AppCompatActivity {
                         "                      <tr>\n" +
                         "                        <td style=\"text-align: left;\">\n" +
                         "                          <span class=\"important-font\">\n" +
-                        "                            Bob Erlicious <br>\n" +
+                        "                            vos informations <br>\n" +
                         "                          </span>\n" +
-                        "                          123 Flower Drive <br>\n" +
-                        "                          Victoria, BC <br>\n" +
-                        "                          V9P 2E8 <br>\n" +
-                        "                          1(250)222-2232\n" +
+                        "                          "+firstname+" <br>\n" +
+                        "                          "+lastname+"<br>\n" +
+                        "                          "+cin+"<br>\n" +
+                        "                          0"+fullnumber+"\n" +
                         "                        </td>\n" +
-                        "                        <td style=\"text-align: right; vertical-align:top;\">\n" +
-                        "                          <span class=\"important-font\">\n" +
-                        "                            Invoice: 00234<br>\n" +
-                        "                          </span>\n" +
-                        "                          April 3, 2014\n" +
-                        "\n" +
-                        "                        </td>\n" +
+
                         "                      </tr>\n" +
                         "                    </table>\n" +
                         "\n" +
@@ -287,12 +308,12 @@ public class SplashScreen extends AppCompatActivity {
                         "                            <table cellspacing=\"0\" cellpadding=\"0\" class=\"force-full-width\">\n" +
                         "                              <tr>\n" +
                         "                                <td class=\"mobile-border\" style=\"background-color: #3bcdc3; color: #ffffff; padding: 5px; border-right: 3px solid #ffffff; text-align:left;\">\n" +
-                        "                                  Expected Delivery Date\n" +
+                        "                                   Date\n" +
                         "                                </td>\n" +
                         "                              </tr>\n" +
                         "                              <tr>\n" +
                         "                                <td  style=\"background-color: #ebebeb; padding: 8px; border-top: 3px solid #ffffff; text-align:left;\">\n" +
-                        "                                  Monday, 13th November 2014\n" +
+                        "                                  Mardi,le 9 février 2021\n" +
                         "                                </td>\n" +
                         "                              </tr>\n" +
                         "                            </table>\n" +
@@ -314,14 +335,8 @@ public class SplashScreen extends AppCompatActivity {
                         "                  <table cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">\n" +
                         "                    <tr>\n" +
                         "                      <td class=\"mobile-padding\" style=\"text-align:left;\">\n" +
-                        "                      <br>\n" +
-                        "                        Thank you for your business. Please <a style=\"color: #2BB6AC;\" href=\"#\">contact us</a> with any questions regarding this invoice.\n" +
-                        "                      <br>\n" +
-                        "                      <br>\n" +
-                        "                      Awesome Inc\n" +
-                        "                      <br>\n" +
-                        "                      <br>\n" +
-                        "                      <br>\n" +
+
+
                         "\n" +
                         "                      </td>\n" +
                         "                    </tr>\n" +
@@ -340,17 +355,7 @@ public class SplashScreen extends AppCompatActivity {
                         "                <td>\n" +
                         "                  <table cellspacing=\"0\" cellpadding=\"30\" width=\"100%\">\n" +
                         "                    <tr>\n" +
-                        "                      <td style=\"text-align:center;\">\n" +
-                        "                        <a href=\"#\">\n" +
-                        "                          <img width=\"61\" height=\"51\" src=\"https://www.filepicker.io/api/file/vkoOlof0QX6YCDF9cCFV\" alt=\"twitter\" />\n" +
-                        "                        </a>\n" +
-                        "                        <a href=\"#\">\n" +
-                        "                          <img width=\"61\" height=\"51\" src=\"https://www.filepicker.io/api/file/fZaNDx7cSPaE23OX2LbB\" alt=\"google plus\" />\n" +
-                        "                        </a>\n" +
-                        "                        <a href=\"#\">\n" +
-                        "                          <img width=\"61\" height=\"51\" src=\"https://www.filepicker.io/api/file/b3iHzECrTvCPEAcpRKPp\" alt=\"facebook\" />\n" +
-                        "                        </a>\n" +
-                        "                      </td>\n" +
+
                         "                    </tr>\n" +
                         "                  </table>\n" +
                         "                </td>\n" +
@@ -359,13 +364,7 @@ public class SplashScreen extends AppCompatActivity {
                         "                <td>\n" +
                         "                  <center>\n" +
                         "                    <table style=\"margin:0 auto;\" cellspacing=\"0\" cellpadding=\"5\" width=\"100%\">\n" +
-                        "                      <tr>\n" +
-                        "                        <td style=\"text-align:center; margin:0 auto;\" width=\"100%\">\n" +
-                        "                           <a href=\"#\" style=\"text-align:center;\">\n" +
-                        "                             <img style=\"margin:0 auto;\" width=\"123\" height=\"24\" src=\"https://www.filepicker.io/api/file/u7CkMXcOSlG8TMbr3LnG\" alt=\"logo link\" />\n" +
-                        "                           </a>\n" +
-                        "                        </td>\n" +
-                        "                      </tr>\n" +
+
                         "                    </table>\n" +
                         "                  </center>\n" +
                         "                </td>\n" +
@@ -382,9 +381,20 @@ public class SplashScreen extends AppCompatActivity {
                         "</html>";
 
 
-             //  Gmail gmail = new Gmail(getResources().getString(R.string.email),getResources().getString(R.string.password),"h.elmakhloufi_etu@enset-media.ac.ma","DATABASE CONNECTED",message);
-          //gmail.sendMail();
+              Gmail gmail = new Gmail(getResources().getString(R.string.email),getResources().getString(R.string.password),email,"Grant",message);
+                gmail.sendMail();
+
+
+                    }}
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
             }
+
+
+
 
             public void onFinish() {
                 startActivity(new Intent(SplashScreen.this, FillingInformation.class));
