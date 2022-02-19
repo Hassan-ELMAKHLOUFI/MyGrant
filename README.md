@@ -24,10 +24,10 @@ docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=postgre
 docker ps
 ```
 
-- Create the database using the queries from the file : database.sql :
+- Create the database using the queries from the file : database.sql
 
 
-- Edit settings.xml file :
+- Edit app/src/main/res/values/settings.xml file :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
