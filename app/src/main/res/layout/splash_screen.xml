@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F8F8F8">
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F8F8F8">
 
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="8dp"
-        android:elevation="8dp"
-        android:src="@drawable/logo_transparent" />
-
+            android:id="@+id/logo"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="8dp"
+            android:elevation="8dp"
+            android:src="@drawable/logo_transparent"/>
 
 </RelativeLayout>

@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
-    <string name="database_server_ip">4.tcp.ngrok.io</string>
-    <string name="database_server_port">10109</string>
+    <string name="database_server_ip">192.168.1.4</string>
+    <string name="database_server_port">5432</string>
+    <string name="database_name">mygrant</string>
     <string name="database_user">postgres</string>
-    <string name="database_name">studentgrantsmanagement</string>
-    <string name="database_password">root</string>
-
+    <string name="database_password">postgres</string>
     <string name="email">my.grant.ensetm@gmail.com</string>
-    <string name="password">HGyt@d@f@#lk3##+=gh[c{v4#{#</string>
-    <string name="nexmo_api_key">key</string>
-    <string name="nexmo_api_secret">secret</string>
+    <string name="password"></string>
+    <string name="nexmo_api_key"></string>
+    <string name="nexmo_api_secret"></string>
 </resources>

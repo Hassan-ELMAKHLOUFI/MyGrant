@@ -1,95 +1,68 @@
-/*==============================================================*/
-/* Nom de SGBD :  PostgreSQL 8                                  */
-/* Date de création :  13/05/42 10:35:36 ?                      */
-/*==============================================================*/
+CREATE DATABASE MyGrant;
 
-CREATE DATABASE StudentGrantsManagement;
-
-drop table ADMINISTRATOR;
-
-drop table ARCHIVE;
-
-drop table BROTHER;
-
-drop table ESTABLISHMENT;
-
-drop table "GRANT";
-
-drop table HAVE;
-
-drop table LEGALGUARDIAN;
-
-drop table MANAGE;
-
-drop table STUDENT;
-
-drop table UPDATE;
-
-/*==============================================================*/
-/* Table : ADMINISTRATOR                                        */
-/*==============================================================*/
-create table ADMINISTRATOR
+drop table administrators;
+create table ADMINISTRATORS
 (
-    ID_A          SERIAL           not null,
-    FIRSTNAME_A   CHAR(1690)       null,
-    LASTNAME_A    CHAR(160)        null,
-    EMAIL_A       CHAR(160) unique null,
-    PHONENUMBER_A CHAR(160) unique null,
-    PASSWORD_A    CHAR(160)        null,
+    ID_A           SERIAL              not null,
+    FIRST_NAME_A   VARCHAR(160)        null,
+    LAST_NAME_A    VARCHAR(160)        null,
+    EMAIL_A        VARCHAR(160) unique null,
+    PHONE_NUMBER_A VARCHAR(160) unique null,
+    PASSWORD_A     VARCHAR(160)        null,
     constraint PK_ADMINISTRATOR primary key (ID_A)
 );
 
-/*==============================================================*/
-/* Table : ARCHIVE                                              */
-/*==============================================================*/
-create table ARCHIVE
+drop table universities;
+create table universities
 (
-    ID_AR           NUMERIC   not null,
-    LISTFILENAME_AR CHAR(160) null,
-    YEAR_AR         DATE      null,
+    id_u   SERIAL       not null,
+    name_u VARCHAR(160) null,
+    city_u VARCHAR(160) null,
+    constraint PK_UNIVERSITY primary key (id_u)
+);
+
+drop table archives;
+create table ARCHIVES
+(
+    ID_AR             SERIAL       not null,
+    LIST_FILE_NAME_AR VARCHAR(160) null,
+    YEAR_AR           DATE         null,
     constraint PK_ARCHIVE primary key (ID_AR)
 );
 
-/*==============================================================*/
-/* Table : BROTHER                                              */
-/*==============================================================*/
-create table BROTHER
+DROP TABLE BROTHERS;
+create table BROTHERS
 (
-    ID_B          NUMERIC   not null,
-    FIRSTNAME_B   CHAR(160) null,
-    LASTNAME_B    CHAR(160) null,
-    BIRTHDATE_B   DATE      null,
-    ISSTUDYING    BOOL      null,
-    ISHANDICAPPED BOOL      null,
+    ID_B           SERIAL       not null,
+    FIRST_NAME_B   VARCHAR(160) null,
+    LAST_NAME_B    VARCHAR(160) null,
+    BIRTH_DATE_B   DATE         null,
+    IS_STUDYING    BOOL         null,
+    IS_HANDICAPPED BOOL         null,
     constraint PK_BROTHER primary key (ID_B)
 );
 
-/*==============================================================*/
-/* Table : ESTABLISHMENT                                        */
-/*==============================================================*/
-create table ESTABLISHMENT
+drop table establishments;
+create table ESTABLISHMENTS
 (
-    ID_E     NUMERIC   not null,
-    NAME_E   CHAR(160) null,
-    CITY_E   CHAR(160) null,
-    ADRESS_E CHAR(160) null,
+    ID_E      SERIAL       not null,
+    ID_U      NUMERIC,
+    NAME_E    VARCHAR(160) null,
+    CITY_E    VARCHAR(160) null,
+    ADDRESS_E VARCHAR(160) null,
     constraint PK_ESTABLISHMENT primary key (ID_E)
 );
 
-/*==============================================================*/
-/* Table : "GRANT"                                              */
-/*==============================================================*/
-create table "GRANT"
+drop table GRANTs;
+create table GRANTS
 (
-    ID_G    NUMERIC   not null,
-    PRICE_G FLOAT8    null,
-    TYPE_G  CHAR(160) null,
+    ID_G    NUMERIC      not null,
+    PRICE_G FLOAT8       null,
+    TYPE_G  VARCHAR(160) null,
     constraint PK_GRANT primary key (ID_G)
 );
 
-/*==============================================================*/
-/* Table : HAVE                                                 */
-/*==============================================================*/
+drop table HAVE;
 create table HAVE
 (
     ID_S NUMERIC not null,
@@ -97,21 +70,17 @@ create table HAVE
     constraint PK_HAVE primary key (ID_S, ID_B)
 );
 
-/*==============================================================*/
-/* Table : LEGALGUARDIAN                                        */
-/*==============================================================*/
-create table LEGALGUARDIAN
+DROP TABLE LEGAL_GUARDIAN;
+create table LEGAL_GUARDIAN
 (
-    ID_L           NUMERIC   not null,
-    FIRSTNAME_L    CHAR(160) null,
-    PHONENUMBER_L  CHAR(160) null,
-    ANNUALINCOME_L CHAR(160) null,
-    constraint PK_LEGALGUARDIAN primary key (ID_L)
+    ID_L            SERIAL       not null,
+    FULL_NAME_L     VARCHAR(160) null,
+    PHONE_NUMBER_L  VARCHAR(160) null,
+    ANNUAL_INCOME_L VARCHAR(160) null,
+    constraint PK_LEGAL_GUARDIAN primary key (ID_L)
 );
 
-/*==============================================================*/
-/* Table : MANAGE                                               */
-/*==============================================================*/
+
 create table MANAGE
 (
     ID_G NUMERIC not null,
@@ -119,35 +88,30 @@ create table MANAGE
     constraint PK_MANAGE primary key (ID_G, ID_A)
 );
 
-/*==============================================================*/
-/* Table : STUDENT                                              */
-/*==============================================================*/
-create table STUDENT
+drop table students;
+create table STUDENTS
 (
-    ID_S           NUMERIC   not null,
-    ID_E           NUMERIC   not null,
-    ID_G           NUMERIC   null,
-    ID_L           NUMERIC   not null,
-    FIRSTNAME_S    CHAR(160) null,
-    LASTNAME_S     CHAR(160) null,
-    BIRTHDATE_S    DATE      null,
-    CITY_S         CHAR(160) null,
-    PROVINCE_S     CHAR(160) null,
-    ADDRESS_S      CHAR(160) null,
-    CNE_S          CHAR(160) null,
-    CIN_S          CHAR(160) null,
-    SOCILASTATUS_S CHAR(160) null,
-    HEALTHSTATUS_S CHAR(160) null,
-    EMAIL_S        CHAR(160) null,
-    POFILEPHOTO_S  CHAR(160) null,
-    FULLNUMBER_S   NUMERIC   null,
-    PASSWORD_S     CHAR(160) null,
+    ID_S            SERIAL       not null,
+    ID_E            NUMERIC      null,
+    ID_G            NUMERIC      null,
+    ID_L            NUMERIC      null,
+    FIRST_NAME_S    VARCHAR(160) null,
+    LAST_NAME_S     VARCHAR(160) null,
+    BIRTH_DATE_S    DATE         null,
+    CITY_S          VARCHAR(160) null,
+    PROVINCE_S      VARCHAR(160) null,
+    ADDRESS_S       VARCHAR(160) null,
+    CNE_S           VARCHAR(160) null unique,
+    CIN_S           VARCHAR(160) null unique,
+    SOCIAL_STATUS_S VARCHAR(160) null,
+    HEALTH_STATUS_S VARCHAR(160) null,
+    EMAIL_S         VARCHAR(160) null unique,
+    PROFILE_PHOTO_S TEXT         null,
+    PHONE_NUMBER_S  VARCHAR(160) null unique,
+    PASSWORD_S      VARCHAR(160) null,
     constraint PK_STUDENT primary key (ID_S)
 );
 
-/*==============================================================*/
-/* Table : UPDATE                                               */
-/*==============================================================*/
 create table UPDATE
 (
     ID_A  NUMERIC not null,
@@ -157,45 +121,83 @@ create table UPDATE
 
 alter table HAVE
     add constraint FK_HAVE_HAVE_BROTHER foreign key (ID_B)
-        references BROTHER (ID_B)
-        on delete restrict on update restrict;
+        references BROTHERS (ID_B)
+        on delete cascade on update cascade;
 
 alter table HAVE
     add constraint FK_HAVE_HAVE2_STUDENT foreign key (ID_S)
-        references STUDENT (ID_S)
-        on delete restrict on update restrict;
+        references STUDENTS (ID_S)
+        on delete cascade on update cascade;
 
 alter table MANAGE
     add constraint FK_MANAGE_MANAGE_ADMINIST foreign key (ID_A)
-        references ADMINISTRATOR (ID_A)
+        references ADMINISTRATORS (ID_A)
         on delete restrict on update restrict;
 
 alter table MANAGE
     add constraint FK_MANAGE_MANAGE2_GRANT foreign key (ID_G)
-        references "GRANT" (ID_G)
+        references GRANTS (ID_G)
         on delete restrict on update restrict;
 
-alter table STUDENT
+alter table STUDENTS
     add constraint FK_STUDENT_BENEFIT_GRANT foreign key (ID_G)
-        references "GRANT" (ID_G)
+        references GRANTS (ID_G)
         on delete restrict on update restrict;
 
-alter table STUDENT
+alter table STUDENTS
     add constraint FK_STUDENT_REGISTER_ESTABLIS foreign key (ID_E)
-        references ESTABLISHMENT (ID_E)
+        references ESTABLISHMENTS (ID_E)
         on delete restrict on update restrict;
 
-alter table STUDENT
+alter table STUDENTS
     add constraint FK_STUDENT_TAKECARE_LEGALGUA foreign key (ID_L)
-        references LEGALGUARDIAN (ID_L)
+        references LEGAL_GUARDIAN (ID_L)
         on delete restrict on update restrict;
 
 alter table UPDATE
     add constraint FK_UPDATE_UPDATE_ARCHIVE foreign key (ID_AR)
-        references ARCHIVE (ID_AR)
+        references ARCHIVES (ID_AR)
         on delete restrict on update restrict;
 
 alter table UPDATE
     add constraint FK_UPDATE_UPDATE2_ADMINIST foreign key (ID_A)
-        references ADMINISTRATOR (ID_A)
+        references ADMINISTRATORS (ID_A)
         on delete restrict on update restrict;
+
+SELECT password_a
+FROM administrators
+WHERE email_a = ?;
+
+
+INSERT INTO students (id_s, email_s, phone_number_s, password_s)
+VALUES (DEFAULT, ?, ?, ?);
+
+INSERT INTO universities (id_u, name_u)
+VALUES (8, 'Abdelmalek Essaadi University');
+INSERT INTO universities (id_u, name_u)
+VALUES (9, 'Cadi Ayyad University');
+INSERT INTO universities (id_u, name_u)
+VALUES (10, 'Chouaib Doukkali University');
+INSERT INTO universities (id_u, name_u)
+VALUES (11, 'Hassan II University');
+INSERT INTO universities (id_u, name_u)
+VALUES (12, 'Ibn Zohr University');
+INSERT INTO universities (id_u, name_u)
+VALUES (13, 'Mohamed Premier University');
+INSERT INTO universities (id_u, name_u)
+VALUES (14, 'Mohammed V University');
+INSERT INTO universities (id_u, name_u)
+VALUES (15, 'Moulay Ismail University');
+INSERT INTO universities (id_u, name_u)
+VALUES (16, 'Sidi Mohamed Ben Abdellah University');
+INSERT INTO universities (id_u, name_u)
+VALUES (17, 'Moulay Slimane University');
+
+SELECT *
+FROM administrators
+WHERE email_a = 'admin@my-grant.ma';
+
+
+
+UPDATE students
+set email_s = cne_s || '@taalim.ma';

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F8F8F8">
+
+    <RelativeLayout
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/start"
+            android:elevation="8dp">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="320dp"
+                android:layout_height="36dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button"
+                android:elevation="4dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="Student Information"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="24sp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/personal_photo"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/title"
+                android:layout_width="90dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="90dp"
+                android:src="@drawable/man" />
+
+
+        <EditText
+                android:enabled="false"
+                android:id="@+id/first_name"
+                android:layout_width="320dp"
+                android:layout_height="36dp"
+                android:layout_below="@id/personal_photo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:text=""
+                android:hint="Please enter your first name here"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        <EditText
+                android:enabled="false"
+                android:id="@+id/last_name"
+                android:layout_width="320dp"
+                android:layout_height="36dp"
+                android:layout_below="@id/first_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:text=""
+                android:hint="Please enter your last name here"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        <EditText
+                android:enabled="false"
+                android:id="@+id/email"
+                android:layout_width="320dp"
+                android:layout_height="36dp"
+                android:layout_below="@id/last_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:inputType="textEmailAddress"
+                android:text=""
+                android:hint="Please enter your email name here"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        <EditText
+                android:enabled="false"
+                android:id="@+id/phone_number"
+                android:layout_width="320dp"
+                android:layout_height="36dp"
+                android:layout_below="@id/email"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:inputType="phone"
+                android:text=""
+                android:hint="Please enter your phone number here"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        <EditText
+                android:enabled="false"
+                android:id="@+id/province"
+                android:layout_width="320dp"
+                android:layout_height="36dp"
+                android:layout_below="@id/phone_number"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:inputType="text"
+                android:text=""
+                android:hint="Please enter your new password here"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

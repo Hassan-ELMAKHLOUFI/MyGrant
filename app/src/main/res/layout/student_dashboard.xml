@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F8F8F8">
+
+    <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/logo_transparent"/>
+    <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/welcome"
+            android:layout_width="320dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="2dp"
+            android:elevation="4dp"
+            android:enabled="false"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
+    <RelativeLayout
+            android:id="@+id/menu1"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcome"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/start"
+            android:elevation="8dp"
+            android:padding="6dp">
+
+        <ImageView
+                android:id="@+id/img_menu1"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/photo1"/>
+
+        <TextView
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/img_menu1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:elevation="4dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="Filling\nInformation"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="22dp"
+                android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+            android:id="@+id/menu2"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcome"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/start"
+            android:elevation="8dp"
+            android:padding="6dp">
+
+        <ImageView
+                android:id="@+id/img_menu2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/photo37"/>
+
+        <TextView
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/img_menu2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:elevation="4dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="View\nGrant Lists"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="22dp"
+                android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+            android:id="@+id/menu3"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/menu1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/start"
+            android:elevation="8dp"
+            android:padding="6dp">
+
+        <ImageView
+                android:id="@+id/img_menu3"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/photo23"/>
+
+        <TextView
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/img_menu3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:elevation="4dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="Submit \nA Complaint"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="22dp"
+                android:textStyle="bold"/>
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+            android:id="@+id/menu4"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/menu2"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="14dp"
+            android:background="@drawable/start"
+            android:elevation="8dp"
+            android:padding="6dp">
+
+        <ImageView
+                android:id="@+id/img_menu4"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/photo24"/>
+
+        <TextView
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/img_menu4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:elevation="4dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="Settings"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="22dp"
+                android:textStyle="bold"/>
+    </RelativeLayout>
+
+
+    <Button
+            android:id="@+id/LogOut"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/menu4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button"
+            android:elevation="4dp"
+            android:text="Log Out"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="26dp"/>
+
+</RelativeLayout>

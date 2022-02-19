@@ -5,8 +5,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
-
+        classpath 'com.android.tools.build:gradle:4.2.0'
     }
 }
 
@@ -15,9 +14,7 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://jitpack.io' }
-        maven {
-            url "https://maven.java.net/content/groups/public/"
-        }
+        maven { url "https://maven.java.net/content/groups/public/" }
     }
 }
 

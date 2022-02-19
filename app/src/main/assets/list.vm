@@ -1,0 +1,237 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:x="urn:schemas-microsoft-com:office:excel"
+      xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <style id="template_20831_Styles">
+        <!--
+        table {
+            mso-displayed-decimal-separator: "\.";
+            mso-displayed-thousand-separator: "\,";
+        }
+
+        @page {
+            margin: .75in .25in .75in .25in;
+            mso-header-margin: .3in;
+            mso-footer-margin: .3in;
+        }
+
+        tr {
+            mso-height-source: auto;
+        }
+
+        col {
+            mso-width-source: auto;
+        }
+
+        br {
+            mso-data-placement: same-cell;
+        }
+
+        .style0 {
+            mso-number-format: General;
+            text-align: general;
+            vertical-align: bottom;
+            white-space: nowrap;
+            mso-rotate: 0;
+            mso-background-source: auto;
+            mso-pattern: auto;
+            color: black;
+            font-size: 12.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Calibri, sans-serif;
+            mso-font-charset: 0;
+            border: none;
+            mso-protection: locked visible;
+            mso-style-name: Normal;
+            mso-style-id: 0;
+        }
+
+        td {
+            mso-style-parent: style0;
+            padding-top: 1px;
+            padding-right: 1px;
+            padding-left: 1px;
+            mso-ignore: padding;
+            color: black;
+            font-size: 12.0pt;
+            font-weight: 400;
+            font-style: normal;
+            text-decoration: none;
+            font-family: Calibri, sans-serif;
+            mso-font-charset: 0;
+            mso-number-format: General;
+            text-align: general;
+            vertical-align: bottom;
+            border: none;
+            mso-background-source: auto;
+            mso-pattern: auto;
+            mso-protection: locked visible;
+            white-space: nowrap;
+            mso-rotate: 0;
+        }
+
+        .xl63 {
+            mso-style-parent: style0;
+            font-size: 16.0pt;
+            font-family: "JetBrains Mono Thin";
+            mso-generic-font-family: auto;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+        }
+
+        .xl64 {
+            mso-style-parent: style0;
+            font-size: 16.0pt;
+            font-family: "JetBrains Mono Thin";
+            mso-generic-font-family: auto;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border: .5pt solid windowtext;
+            background: #E7E6E6;
+            mso-pattern: black none;
+        }
+
+        .xl65 {
+            mso-style-parent: style0;
+            text-align: center;
+        }
+
+        .xl66 {
+            mso-style-parent: style0;
+            font-size: 16.0pt;
+            font-family: "JetBrains Mono Thin";
+            mso-generic-font-family: auto;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: .5pt solid windowtext;
+            background: #E7E6E6;
+            mso-pattern: black none;
+        }
+
+        .xl67 {
+            mso-style-parent: style0;
+            font-size: 16.0pt;
+            font-family: "JetBrains Mono Thin";
+            mso-generic-font-family: auto;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: none;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #E7E6E6;
+            mso-pattern: black none;
+        }
+
+        .xl68 {
+            mso-style-parent: style0;
+            font-size: 16.0pt;
+            font-family: "JetBrains Mono Thin";
+            mso-generic-font-family: auto;
+            mso-font-charset: 0;
+            text-align: center;
+            vertical-align: middle;
+            border-top: .5pt solid windowtext;
+            border-right: .5pt solid windowtext;
+            border-bottom: .5pt solid windowtext;
+            border-left: none;
+            background: #E7E6E6;
+            mso-pattern: black none;
+        }
+
+        -->
+    </style>
+</head>
+
+<body link="#0563C1" vlink="#954F72">
+
+<div id="template_20831" align=center x:publishsource="Excel">
+
+    <table border=0 cellpadding=0 cellspacing=0 width=671 style='border-collapse:
+ collapse;table-layout:fixed;width:503pt'>
+        <col width=41 style='mso-width-source:userset;mso-width-alt:1322;width:31pt'>
+        <col width=116 style='mso-width-source:userset;mso-width-alt:3712;width:87pt'>
+        <col width=129 style='mso-width-source:userset;mso-width-alt:4138;width:97pt'>
+        <col width=99 style='mso-width-source:userset;mso-width-alt:3157;width:74pt'>
+        <col width=123 style='mso-width-source:userset;mso-width-alt:3925;width:92pt'>
+        <col width=163 style='mso-width-source:userset;mso-width-alt:5205;width:122pt'>
+        <tr height=21 style='height:16.0pt'>
+            <td height=21 width=41 style='height:16.0pt;width:31pt'></td>
+            <td width=116 style='width:87pt'></td>
+            <td width=129 style='width:97pt'></td>
+            <td width=99 style='width:74pt'></td>
+            <td width=123 style='width:92pt'></td>
+            <td width=163 style='width:122pt'></td>
+        </tr>
+        <tr height=33 style='mso-height-source:userset;height:25.0pt'>
+            <td height=33 colspan=2 style='height:25.0pt;mso-ignore:colspan'></td>
+            <td colspan=3 class=xl66 style='border-right:.5pt solid black'>$type</td>
+            <td></td>
+        </tr>
+        <tr height=31 style='mso-height-source:userset;height:23.0pt'>
+            <td height=31 colspan=2 style='height:23.0pt;mso-ignore:colspan'></td>
+            <td colspan=3 class=xl66 style='border-right:.5pt solid black'>$province</td>
+            <td></td>
+        </tr>
+        <tr height=28 style='mso-height-source:userset;height:21.0pt'>
+            <td height=28 colspan=2 style='height:21.0pt;mso-ignore:colspan'></td>
+            <td colspan=3 class=xl66 style='border-right:.5pt solid black'>$date</td>
+            <td></td>
+        </tr>
+        <tr height=21 style='height:16.0pt'>
+            <td height=21 style='height:16.0pt'></td>
+            <td></td>
+            <td class=xl65></td>
+            <td class=xl65></td>
+            <td class=xl65></td>
+            <td></td>
+        </tr>
+        <tr height=28 style='height:21.0pt'>
+            <td height=28 class=xl64 style='height:21.0pt'>N°</td>
+            <td class=xl64 style='border-left:none'>Nom</td>
+            <td class=xl64 style='border-left:none'>Prenom</td>
+            <td class=xl64 style='border-left:none'>CIN</td>
+            <td class=xl64 style='border-left:none'>CNE</td>
+            <td class=xl64 style='border-left:none'>Naissance</td>
+        </tr>
+        #set( $counter = 1 )
+        #foreach( $student in $students )
+            <tr height=28 style='height:21.0pt'>
+                <td height=28 class=xl63 style='height:21.0pt;border-top:none'>$counter</td>
+                <td class=xl63 style='border-top:none;border-left:none'>$student.getLastName()</td>
+                <td class=xl63 style='border-top:none;border-left:none'>$student.getFirstName()</td>
+                <td class=xl63 style='border-top:none;border-left:none'>$student.getCin()</td>
+                <td class=xl63 style='border-top:none;border-left:none'>$student.getCne()</td>
+                <td class=xl63 style='border-top:none;border-left:none'>$student.getBirthDate()</td>
+            </tr>
+            #set( $counter = $counter + 1 )
+        #end
+        <![if supportMisalignedColumns]>
+        <tr height=0 style='display:none'>
+            <td width=41 style='width:31pt'></td>
+            <td width=116 style='width:87pt'></td>
+            <td width=129 style='width:97pt'></td>
+            <td width=99 style='width:74pt'></td>
+            <td width=123 style='width:92pt'></td>
+            <td width=163 style='width:122pt'></td>
+        </tr>
+        <![endif]>
+    </table>
+
+</div>
+</body>
+
+</html>
+

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F8F8F8">
+
+    <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="4dp"
+            android:src="@drawable/photo13"/>
+
+    <TextView
+            android:id="@+id/alert"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="-60dp"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:text=""
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+
+    <RelativeLayout
+            android:id="@+id/part1"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/start"
+            android:elevation="8dp">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="320dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button"
+                android:elevation="4dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="Create New Account"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+
+        <TextView
+                android:id="@+id/infos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:text="Please fill in the fields with your information :"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+
+
+        <TextView
+                android:id="@+id/email_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/infos"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Email :"
+                android:textColor="#000000"
+                android:textSize="24sp"/>
+
+
+        <EditText
+                android:id="@+id/email"
+                android:layout_width="320dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/email_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:hint="Please enter your email"
+                android:text="K654987153@taalim.ma"
+                android:inputType="textEmailAddress"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+        <TextView
+                android:id="@+id/phone_number_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Phone Number :"
+                android:textColor="#000000"
+                android:textSize="24sp"/>
+
+
+        <EditText
+                android:id="@+id/phone_number"
+                android:layout_width="320dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/phone_number_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:hint="Please enter your phone number"
+                android:inputType="phone"
+                android:text="07852899129"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+        <TextView
+                android:id="@+id/password_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/phone_number"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Password :"
+                android:textColor="#000000"
+                android:textSize="24sp"/>
+
+
+        <EditText
+                android:id="@+id/password"
+                android:layout_width="320dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/password_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:hint="Please enter your password here"
+                android:inputType="textPassword"
+                android:text="password"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+        <TextView
+                android:id="@+id/repeat_password_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/password"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Repeat Password :"
+                android:textColor="#000000"
+                android:textSize="24sp"/>
+
+
+        <EditText
+                android:id="@+id/repeat_password"
+                android:layout_width="320dp"
+                android:layout_height="30dp"
+                android:layout_below="@id/repeat_password_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/input"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:hint="Please enter again your password here"
+                android:inputType="textPassword"
+                android:text="password"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+
+        <Button
+                android:id="@+id/register"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/repeat_password"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button"
+                android:elevation="4dp"
+                android:layout_marginRight="8dp"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+        <Button
+                android:id="@+id/log_in"
+                android:layout_width="140dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/repeat_password"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button"
+                android:elevation="4dp"
+                android:text="Log In"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

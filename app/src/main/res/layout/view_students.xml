@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/Layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F8F8F8">
+
+    <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/photo32"/>
+
+    <TextView
+            android:id="@+id/alert"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-60dp"
+            android:elevation="8dp"
+            android:text=""
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="18sp"/>
+
+    <RelativeLayout
+            android:elevation="8dp"
+            android:id="@+id/part1"
+            android:layout_width="340dp"
+            android:layout_height="450dp"
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/logo"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/start">
+
+        <TextView
+                android:id="@+id/title1"
+                android:layout_width="320dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button"
+                android:elevation="4dp"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="Students List"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18sp"/>
+
+        <RelativeLayout
+                android:layout_below="@id/title1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/recycleViewContainer"
+                    android:layout_width="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>
